@@ -65,6 +65,7 @@
         </style>
     </head>
     <body>
+        @extends('bootstrap')
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -77,12 +78,9 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md text-success">
-                    Laravel
-                </div>
-
-                
+            <div>
+                <h1 class="text-danger">Error!!!</h1>    
+                <h1 class="text-danger">Event Not Added!!!</h1>         
             </div>
         </div>
     </body>

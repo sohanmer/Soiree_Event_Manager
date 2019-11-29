@@ -11,6 +11,13 @@
 |
 */
 
+use App\Http\Controllers\EventController;
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('landingPage');
 });
+Route::post('/store', 'EventController@store');
+Route::post('/success', function(){
+    return view('sucessPage');
+});
+Route::POST('/retrieve', 'EventController@retrieve');

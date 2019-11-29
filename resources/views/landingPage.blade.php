@@ -63,26 +63,27 @@
                 margin-bottom: 30px;
             }
         </style>
+         @extends('bootstrap')
     </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md text-success">
-                    Laravel
-                </div>
-
-                
+    <body>    
+            <div class="container mt-5">
+                <h1 class="text-primary text-center">Enter the information of next Soiree.</h1>
+                <form action="retrieve" method= "POST">
+                    <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                    <div class=" text-center mt-5 mb-5"><button type="submit" class="btn btn-primary">View Soiree</button></div>
+                </form>
+                <form class="container mt-4" action="store" method="POST" style="width:25%">
+                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                        <div class="form-group">
+                          <input type="date" class="form-control" name="date" id="date" aria-describedby="dateHelp" placeholder="DD-MM--YY">
+                        </div>
+                        <div class="form-group">
+                         <input type="text" class="form-control" id="venue" name="venue" placeholder="Venue">
+                        </div>
+                        <div class="text-center">
+                         <button type="submit mt-3" class="btn btn-primary">Submit</button>
+                        </div>
+                </form>                
             </div>
         </div>
     </body>

@@ -63,26 +63,29 @@
                 margin-bottom: 30px;
             }
         </style>
+         @extends('bootstrap')
     </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md text-success">
-                    Laravel
-                </div>
-
-                
+    <body class="container">
+            <h1 class="text-center text-primary mt-5">Soiree List</h1>      
+            <div class="mt-5">
+               <table class="table table-dark mt-2 text-center" >
+                    <thead>
+                            <tr>
+                              <th scope="col">Date</th>
+                              <th scope="col">Venue</th>
+                            </tr>
+                    </thead>
+                        @foreach ($soiree as $event)
+                             <tr>
+                                <td><?= $event->date?></td>
+                                <td><?= $event->venue?></td>
+                            </tr>
+                        @endforeach
+                            
+               </table>  
+               <div class="text-center mt-5">  
+                    <a href="/"><button class="btn btn-primary"><b>Add Soiree</b></button></a>
+               </div>
             </div>
         </div>
     </body>
